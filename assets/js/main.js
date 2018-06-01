@@ -63,15 +63,19 @@ $(document).on('click', '.gifImg', function () {
         $(this).attr('src', $(this).attr('data-live'));
     } else {
         $(this).attr('src', $(this).attr('data-still'));
-        //copy link to clipboard
-        var dt = new clipboard.DT();
-        dt.setData("text/plain", $(this).attr('data-live'));
-        clipboard.write(dt);
-        M.toast({
-            html: '<i class="material-icons">content_copy</i>Gif link copied to clipboard!',
-            classes: 'copyToast green'
-        });
     }
+});
+
+//copy link to clipboard on double mouse click
+$(document).on('dblclick', '.gifImg', function () {
+    var dt = new clipboard.DT();
+    dt.setData("text/plain", $(this).attr('data-live'));
+    clipboard.write(dt);
+    M.toast({
+        html: '<i class="material-icons">content_copy</i>Gif link copied to clipboard!',
+        classes: 'copyToast green',
+        displayLength: 1500
+    });
 });
 
 
