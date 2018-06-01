@@ -7,22 +7,23 @@ body {
     font-family: 'Cinzel', serif;
 }
 
-.displayBtns {
-    -webkit-column-count: 2;
-    /* Chrome, Safari, Opera */
-    -moz-column-count: 2;
-    /* Firefox */
-    column-count: 2;
-    padding-top: 30%;
-}
-
-.main {
-    -webkit-column-count: 5;
-    /* Chrome, Safari, Opera */
-    -moz-column-count: 5;
-    /* Firefox */
-    column-count: 5;
-    column-fill: balance;
+@media only screen and (min-width: 600px) {
+    .displayBtns {
+        -webkit-column-count: 2;
+        /* Chrome, Safari, Opera */
+        -moz-column-count: 2;
+        /* Firefox */
+        column-count: 2;
+        padding-top: 10%;
+    }
+    .main {
+        -webkit-column-count: 5;
+        /* Chrome, Safari, Opera */
+        -moz-column-count: 5;
+        /* Firefox */
+        column-count: 5;
+        column-fill: balance;
+    }
 }
 
 .logo {
@@ -42,7 +43,7 @@ body {
 
 .footer {
     font-family: 'Courier New', Courier, monospace;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     font-size: 0.8em;
 }
