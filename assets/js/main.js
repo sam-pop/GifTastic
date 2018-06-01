@@ -2,11 +2,11 @@ var apiKey = "yLcI2YzFd7HS2iXNcVmAYoktCbwK6U9b"; // giphy api key
 var limit = 10; // the number of returned results
 var searchParam;
 
-var buttons = ["Jerry Seinfeld", "George Costanza", "Elaine Benes", "Cosmo Kramer", "Newman"]; // button array
+var topics = ["Jerry Seinfeld", "George Costanza", "Elaine Benes", "Cosmo Kramer", "Newman", "Frank Costanza", "Estelle Costanza"]; // button array
 
 function populateButtons() {
     $('.displayBtns').empty();
-    buttons.forEach(function (item) {
+    topics.forEach(function (item) {
         var btn = $('<button>').addClass('btn red arrBtn');
         btn.text(item);
         $('.displayBtns').append(btn);
@@ -41,8 +41,8 @@ function populateMain(res) {
 $('#submitBtn').click(function (e) {
     e.preventDefault();
     var inputText = $('#searchField').val().trim();
-    if (buttons.indexOf(inputText) == -1 && inputText !== "") {
-        buttons.push(inputText);
+    if (topics.indexOf(inputText) == -1 && inputText !== "") {
+        topics.push(inputText);
         populateButtons();
     }
 });
