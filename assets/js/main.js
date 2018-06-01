@@ -20,22 +20,28 @@ function populateMain(res) {
     main.empty();
 
     for (var i = 0; i < res.data.length; i++) {
-        var rating = res.rating;
+        var rating = res.data[i].rating;
         var img = $('<img>').attr({
             'src': res.data[i].images.fixed_height_still.url,
             'data-still': res.data[i].images.fixed_height_still.url,
             'data-live': res.data[i].images.fixed_height_downsampled.url
-        }).addClass('gifImg responsive-img ');
-        main.append(res.data[i].rating);
-        main.append(img);
-        main.append("&nbsp;&nbsp;");
+        }).addClass('gifImg responsive-img');
+        if (rating && img) {
+            var card = $('<div>').addClass('card center');
+            var cardImage = $('<div>').addClass('card-image').append(img);
+            var cardTitle = $('<div>').addClass('card-title').append("Rating: " + "<b>" + rating + "</b>");
+            card.append(cardImage);
+            card.append(cardTitle);
+            main.append(card);
+            main.append("<br>");
+        }
     }
 }
 
 $('#submitBtn').click(function (e) {
     e.preventDefault();
     var inputText = $('#searchField').val().trim();
-    if (buttons.indexOf(inputText) == -1) {
+    if (buttons.indexOf(inputText) == -1 && inputText !== "") {
         buttons.push(inputText);
         populateButtons();
     }
