@@ -5,3 +5,7 @@
     /* Firefox */
     column-count: 2;
 }
+
+.logo {
+    font-size: 2em;
+}
