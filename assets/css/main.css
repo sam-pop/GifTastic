@@ -26,6 +26,10 @@ body {
     }
 }
 
+.main div {
+    display: inline-block;
+}
+
 .logo {
     font-size: 4em;
     margin: 10px;
