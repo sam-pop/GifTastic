@@ -46,3 +46,14 @@ body {
     bottom: 0;
     font-size: 0.8em;
 }
+
+.copyToast {
+    font-size: 0.8em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tip {
+    font-style: italic;
+    font-size: 0.8em;
+    font-family: 'Courier New', Courier, monospace;
+}

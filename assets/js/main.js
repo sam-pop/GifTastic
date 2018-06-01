@@ -37,6 +37,8 @@ function populateMain(res) {
             main.append("<br>");
         }
     }
+    $('.tip').show();
+
 }
 
 // on click adds the current search field value to the array and recreates the buttons on the screen
@@ -59,7 +61,17 @@ $(document).on('click', '.arrBtn', function () {
 $(document).on('click', '.gifImg', function () {
     if ($(this).attr('src') == $(this).attr('data-still')) {
         $(this).attr('src', $(this).attr('data-live'));
-    } else $(this).attr('src', $(this).attr('data-still'));
+    } else {
+        $(this).attr('src', $(this).attr('data-still'));
+        //copy link to clipboard
+        var dt = new clipboard.DT();
+        dt.setData("text/plain", $(this).attr('data-live'));
+        clipboard.write(dt);
+        M.toast({
+            html: '<i class="material-icons">content_copy</i>Gif link copied to clipboard!',
+            classes: 'copyToast green'
+        });
+    }
 });
 
 
@@ -79,5 +91,7 @@ function runAPI() {
 }
 
 $(function () {
+    $('.tip').hide();
     populateButtons(); // creates the initial buttons on document ready
+
 });
